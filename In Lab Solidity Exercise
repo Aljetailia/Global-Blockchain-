@@ -1,1 +1,49 @@
 https://remix.ethereum.org/#optimize=false&runs=200&evmVersion=null&version=soljson-v0.7.4+commit.3f05b770.js
+
+
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.7.0 <0.8.0;
+
+contract mappingCities {
+    mapping(string => string) cities;
+    function add(string memory _city, string memory _country) public {
+        cities[_city] = _country;
+        
+    }
+    function get(string memory _name) public view returns(string memory) {
+        return cities[_name];
+    }
+    function remove(string memory _nam) public {
+        delete(cities[_nam]);
+    }
+}
+
+contract BasicDataType {
+    
+    
+    //..type variables
+
+    uint256 number = 255; 
+    
+    int256 num = -1;
+    
+    address public owner;       
+    
+    bool public flag = false;
+    
+    uint  getsBalance; 
+
+    // Function takes in an address and save the balance of the address into getsBalance variable 
+    function test (address addr) public {
+        owner = addr;
+        getsBalance = owner.balance;
+ 
+    }
+    
+    /* this func returns the value that stored in the getsBalance variable */
+    function readBalance () public view returns(uint){
+        return getsBalance;
+        
+    }
+}
