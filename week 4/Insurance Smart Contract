@@ -1,0 +1,31 @@
+Step 2: Add any required methods that are needed to check if the function are called correctly
+, and also add a modifier function that allows only the owner to run the changePrice function. 
+
+pragma solidity >=0.7.0 <0.8.0;
+contract FuncExample {
+    
+    struct Flash {
+        string name;
+        unit id;
+        
+    }
+    
+    mapping(address => Flash) flashOwner;
+    address public owner;
+    constructor() public {
+        owner = msg.sender;
+        
+    }
+    
+    modifier OnlyOwner (){
+        require(owner == msg.sender, "You are beautiful but not the owner");
+        
+        revert("do not run this function again it cost some fees");
+        
+    }
+    function addFlash(string memory _name, unit _id) public OnlyOwner{
+        
+    }
+}
+
+Step 3: Add any error handling that may occur in any function
